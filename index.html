@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fanambinantsoa Haja | DevOps Junior</title>
+    <meta name="description" content="Portfolio de Fanambinantsoa Haja, étudiant en Génie Logiciel spécialisé en DevOps. Linux, Docker, Kubernetes, Terraform, Jenkins et Cloud.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+</head>
+<body>
+
+    <canvas id="bg-animation"></canvas>
+
+    <nav>
+        <div class="logo">
+            Fanambina<span>.</span>
+        </div>
+        <ul>
+            <li><a href="#home">Accueil</a></li>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#skills">Compétences</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#journey">Parcours</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-left">
+            <p class="hello">Bonjour, je suis</p>
+            <h1>Fanambinantsoa Haja</h1>
+            <h2 id="typing"></h2>
+            <p class="hero-text">
+                Étudiant en Génie Logiciel passionné par l'automatisation, l'administration Linux, les infrastructures Cloud et les pipelines CI/CD. 
+                Mon objectif est de devenir DevOps Engineer en concevant des infrastructures modernes, sécurisées et automatisées.
+            </p>
+            <div class="hero-buttons">
+                <a href="assets/cv/CV_Fanambinantsoa_Haja.pdf" class="btn btn-primary">Télécharger mon CV</a>
+                <a href="#projects" class="btn btn-secondary">Voir mes projets</a>
+            </div>
+        </div>
+        <div class="hero-right">
+            <img src="tamby.jpg" alt="Fanambinantsoa Haja">
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="section-title">
+            <h2>À propos de moi</h2>
+            <span></span>
+        </div>
+        <div class="about-content">
+            <div class="about-card">
+                <i class="fa-solid fa-server"></i>
+                <h3>Infrastructure</h3>
+                <p>Administration Linux, virtualisation et conception d'environnements fiables.</p>
+            </div>
+            <div class="about-card">
+                <i class="fa-solid fa-gears"></i>
+                <h3>Automatisation</h3>
+                <p>Création de pipelines CI/CD avec Jenkins, GitHub Actions et scripts Bash.</p>
+            </div>
+            <div class="about-card">
+                <i class="fa-solid fa-cloud"></i>
+                <h3>Cloud & Containers</h3>
+                <p>Déploiement d'applications avec Docker, Kubernetes et Terraform.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <div class="section-title">
+            <h2>Compétences</h2>
+            <span></span>
+        </div>
+        <div class="skills-grid">
+            <div class="skill"><i class="fab fa-linux"></i><h3>Linux</h3></div>
+            <div class="skill"><i class="fab fa-docker"></i><h3>Docker</h3></div>
+            <div class="skill"><i class="fas fa-dharmachakra"></i><h3>Kubernetes</h3></div>
+            <div class="skill"><i class="fas fa-code-branch"></i><h3>Git</h3></div>
+            <div class="skill"><i class="fab fa-github"></i><h3>GitHub</h3></div>
+            <div class="skill"><i class="fas fa-terminal"></i><h3>Bash</h3></div>
+            <div class="skill"><i class="fas fa-cubes"></i><h3>Terraform</h3></div>
+            <div class="skill"><i class="fas fa-network-wired"></i><h3>Ansible</h3></div>
+            <div class="skill"><i class="fas fa-gear"></i><h3>Jenkins</h3></div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <div class="section-title">
+            <h2>Mes projets</h2>
+            <span></span>
+        </div>
+
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+                <h3>Plateforme E-commerce</h3>
+                <p>Conception d'une application web avec gestion des utilisateurs et base de données relationnelle MySQL. Déploiement automatisé sur environnement Linux via des scripts Bash complexes.</p>
+                <div class="project-tags">
+                    <span>Linux</span>
+                    <span>Bash</span>
+                    <span>MySQL</span>
+                </div>
+                <a href="https://github.com/Fanambinalova" target="_blank" class="project-link">
+                    Voir sur GitHub <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="fa-solid fa-network-wired"></i>
+                </div>
+                <h3>Environnement Linux Virtualisé</h3>
+                <p>Simulation d'une infrastructure DevOps complète sous QEMU/KVM. Automatisation de la configuration système avec Ansible et intégration de pipelines CI/CD (GitHub Actions) pour le test et le déploiement.</p>
+                <div class="project-tags">
+                    <span>QEMU/KVM</span>
+                    <span>Ansible</span>
+                    <span>CI/CD</span>
+                </div>
+                <a href="https://github.com/Fanambinalova" target="_blank" class="project-link">
+                    Voir sur GitHub <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="more-projects">
+            <a href="https://github.com/Fanambinalova" target="_blank" class="btn btn-secondary">
+                Voir plus sur GitHub <i class="fa-brands fa-github"></i>
+            </a>
+        </div>
+    </section>
+
+    <section class="journey" id="journey">
+        <div class="section-title">
+            <h2>Mon parcours</h2>
+            <span></span>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>2024 - 2027</h3>
+                <h4>Baccalauréat Scientifique (Série S)</h4>
+            </div>
+            <div class="timeline-item">
+                <h3>2024 - 2027</h3>
+                <h4>Licence en Informatique Technologique (En cours de formation)</h4>
+                <p>Parcours Génie Logiciel</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <h2>Contact</h2>
+            <span></span>
+        </div>
+        <div class="contact-container">
+            <a href="mailto:fanambinalova@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/Fanambinalova" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/fanambinalova" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Fanambina. Turning dreams to reality. | ¬ DevOps Junior</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
