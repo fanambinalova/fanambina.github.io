@@ -3,24 +3,62 @@
     Auteur : Fanambinantsoa Haja
 ==================================*/
 
-/*==========================
-    TYPEWRITER EFFECT
-===========================*/
+// --- 1. GESTION DU DOUBLE THÈME ---
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+
+const currentTheme = localStorage.getItem('theme') || 'dark';
+document.documentElement.setAttribute('data-theme', currentTheme);
+updateThemeIcon(currentTheme);
+
+themeToggle.addEventListener('click', () => {
+    let theme = document.documentElement.getAttribute('data-theme');
+    let newTheme = theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+});
+
+function updateThemeIcon(theme) {
+    themeIcon.className = theme === 'light' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+}
+
+// --- 2. GESTION DE LA TRADUCTION MULTILINGUE ---
+const langToggle = document.getElementById('lang-toggle');
+const langText = document.getElementById('lang-text');
+let currentLang = localStorage.getItem('lang') || 'fr';
+
+function applyLanguage(lang) {
+    document.querySelectorAll('[data-fr]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+    });
+    langText.textContent = lang === 'fr' ? 'EN' : 'FR';
+    localStorage.setItem('lang', lang);
+}
+applyLanguage(currentLang);
+
+langToggle.addEventListener('click', () => {
+    currentLang = currentLang === 'fr' ? 'en' : 'fr';
+    applyLanguage(currentLang);
+    textIndex = 0;
+    charIndex = 0;
+    deleting = false;
+});
+
+// --- 3. EFFET TYPEWRITER ADAPTÉ ET TRADUIT ---
 const typingElement = document.getElementById("typing");
-const texts = [
-    "DevOps Engineer",
-    "Linux Enthusiast",
-    "Docker & Kubernetes",
-    "CI/CD Automation",
-    "Cloud & Infrastructure"
-];
+const translations = {
+    fr: ["DevOps Engineer", "Passionné Linux", "Docker & Kubernetes", "Automatisation CI/CD", "Cloud & Infrastructure"],
+    en: ["DevOps Engineer", "Linux Enthusiast", "Docker & Kubernetes", "CI/CD Automation", "Cloud & Infrastructure"]
+};
 
 let textIndex = 0;
 let charIndex = 0;
 let deleting = false;
 
 function typeEffect() {
-    const current = texts[textIndex];
+    const currentList = translations[currentLang] || translations['fr'];
+    const current = currentList[textIndex];
 
     if (!deleting) {
         typingElement.textContent = current.substring(0, charIndex++);
@@ -33,10 +71,7 @@ function typeEffect() {
         typingElement.textContent = current.substring(0, charIndex--);
         if (charIndex < 0) {
             deleting = false;
-            textIndex++;
-            if (textIndex >= texts.length) {
-                textIndex = 0;
-            }
+            textIndex = (textIndex + 1) % currentList.length;
         }
     }
     setTimeout(typeEffect, deleting ? 40 : 90);
@@ -49,7 +84,7 @@ typeEffect();
 const navbar = document.querySelector("nav");
 window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
-        navbar.style.boxShadow = "0 8px 20px rgba(0,0,0,.35)";
+        navbar.style.boxShadow = "0 8px 20px rgba(0,0,0,.15)";
     } else {
         navbar.style.boxShadow = "none";
     }
@@ -140,12 +175,12 @@ window.addEventListener("mousemove", (e) => {
 });
 
 /*====================================================
-    MOTEUR D'ANIMATION DE GOUTTES MACRO (Inspiration Vidéo)
+    MOTEUR D'ANIMATION DE GOUTTES MACRO (Couleurs adaptatives)
 ======================================================*/
 const canvas = document.getElementById('bg-animation');
 const ctx = canvas.getContext('2d');
 let particlesArray = [];
-const numberOfParticles = 35; // Quantité idéale pour préserver les performances
+const numberOfParticles = 35;
 
 const mouse = {
     x: null,
@@ -173,29 +208,28 @@ resizeCanvas();
 class MacroDrop {
     constructor() {
         this.reset();
-        this.y = Math.random() * canvas.height; // Répartition initiale au premier chargement
+        this.y = Math.random() * canvas.height;
     }
 
     reset() {
         this.x = Math.random() * canvas.width;
         this.y = canvas.height + Math.random() * 100;
-        this.size = Math.random() * 25 + 6; // Grosses billes type macro photographique
-        this.speedY = Math.random() * 0.6 + 0.2; // Ascension lente et paisible
+        this.size = Math.random() * 25 + 6;
+        this.speedY = Math.random() * 0.6 + 0.2;
         this.wobbleSpeed = Math.random() * 0.02 + 0.01;
         this.wobble = 0;
-        this.alpha = Math.random() * 0.25 + 0.05; // Très translucides
+        this.alpha = Math.random() * 0.25 + 0.05;
     }
 
     update() {
         this.y -= this.speedY;
         this.wobble += this.wobbleSpeed;
-        this.x += Math.sin(this.wobble) * 0.2; // Balancement organique fluide
+        this.x += Math.sin(this.wobble) * 0.2;
 
         if (this.y < -this.size) {
             this.reset();
         }
 
-        // Interaction avec la souris (Écartement fluide)
         if (mouse.x != null && mouse.y != null) {
             let dx = mouse.x - this.x;
             let dy = mouse.y - this.y;
@@ -209,9 +243,9 @@ class MacroDrop {
     }
 
     draw() {
+        let isDark = document.documentElement.getAttribute('data-theme') === 'dark';
         ctx.beginPath();
         
-        // Création d'un dégradé radial interne pour simuler la réfraction de la lumière dans l'eau
         let gradient = ctx.createRadialGradient(
             this.x - this.size * 0.2, 
             this.y - this.size * 0.2, 
@@ -221,16 +255,22 @@ class MacroDrop {
             this.size
         );
         
-        gradient.addColorStop(0, `rgba(255, 255, 255, ${this.alpha * 1.8})`); // Point lumineux (reflet)
-        gradient.addColorStop(0.5, `rgba(59, 130, 246, ${this.alpha * 0.4})`); // Teinte eau DevOps
-        gradient.addColorStop(1, 'rgba(10, 15, 30, 0)'); // Fusion avec le fond
+        if (isDark) {
+            gradient.addColorStop(0, `rgba(255, 255, 255, ${this.alpha * 1.8})`);
+            gradient.addColorStop(0.5, `rgba(59, 130, 246, ${this.alpha * 0.4})`);
+            gradient.addColorStop(1, 'rgba(10, 15, 30, 0)');
+            ctx.strokeStyle = `rgba(255, 255, 255, ${this.alpha * 0.25})`;
+        } else {
+            gradient.addColorStop(0, `rgba(255, 255, 255, ${this.alpha * 2})`);
+            gradient.addColorStop(0.5, `rgba(37, 99, 235, ${this.alpha * 0.35})`);
+            gradient.addColorStop(1, 'rgba(238, 242, 246, 0)');
+            ctx.strokeStyle = `rgba(37, 99, 235, ${this.alpha * 0.2})`;
+        }
         
         ctx.fillStyle = gradient;
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
 
-        // Fin contour cristallin pour l'effet de verre/goutte d'eau
-        ctx.strokeStyle = `rgba(255, 255, 255, ${this.alpha * 0.25})`;
         ctx.lineWidth = 0.5;
         ctx.stroke();
     }

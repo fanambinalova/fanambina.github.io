@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,27 +18,38 @@
             Fanambina<span>.</span>
         </div>
         <ul>
-            <li><a href="#home">Accueil</a></li>
-            <li><a href="#about">À propos</a></li>
-            <li><a href="#skills">Compétences</a></li>
-            <li><a href="#projects">Projets</a></li>
-            <li><a href="#journey">Parcours</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#home" data-fr="Accueil" data-en="Home">Accueil</a></li>
+            <li><a href="#about" data-fr="À propos" data-en="About">À propos</a></li>
+            <li><a href="#skills" data-fr="Compétences" data-en="Skills">Compétences</a></li>
+            <li><a href="#projects" data-fr="Projets" data-en="Projects">Projets</a></li>
+            <li><a href="#journey" data-fr="Parcours" data-en="Journey">Parcours</a></li>
+            <li><a href="#contact" data-fr="Contact" data-en="Contact">Contact</a></li>
         </ul>
+
+        <div class="nav-controls">
+            <button id="lang-toggle" class="control-btn">
+                <i class="fa-solid fa-language"></i> <span id="lang-text">EN</span>
+            </button>
+            <button id="theme-toggle" class="control-btn">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+            </button>
+        </div>
     </nav>
 
     <section class="hero" id="home">
         <div class="hero-left">
-            <p class="hello">Bonjour, je suis</p>
+            <p class="hello" data-fr="Bonjour, je suis" data-en="Hello, I am">Bonjour, je suis</p>
             <h1>Fanambinantsoa Haja</h1>
             <h2 id="typing"></h2>
-            <p class="hero-text">
+            <p class="hero-text" 
+               data-fr="Étudiant en Génie Logiciel passionné par l'automatisation, l'administration Linux, les infrastructures Cloud et les pipelines CI/CD. Mon objectif est de devenir DevOps Engineer en concevant des infrastructures modernes, sécurisées et automatisées."
+               data-en="Software Engineering student passionate about automation, Linux administration, Cloud infrastructures, and CI/CD pipelines. My goal is to become a DevOps Engineer by designing modern, secure, and automated infrastructures.">
                 Étudiant en Génie Logiciel passionné par l'automatisation, l'administration Linux, les infrastructures Cloud et les pipelines CI/CD. 
                 Mon objectif est de devenir DevOps Engineer en concevant des infrastructures modernes, sécurisées et automatisées.
             </p>
             <div class="hero-buttons">
-                <a href="assets/cv/CV_Fanambinantsoa_Haja.pdf" class="btn btn-primary">Télécharger mon CV</a>
-                <a href="#projects" class="btn btn-secondary">Voir mes projets</a>
+                <a href="assets/cv/CV_Fanambinantsoa_Haja.pdf" class="btn btn-primary" data-fr="Télécharger mon CV" data-en="Download CV">Télécharger mon CV</a>
+                <a href="#projects" class="btn btn-secondary" data-fr="Voir mes projets" data-en="See my projects">Voir mes projets</a>
             </div>
         </div>
         <div class="hero-right">
@@ -48,31 +59,31 @@
 
     <section class="about" id="about">
         <div class="section-title">
-            <h2>À propos de moi</h2>
+            <h2 data-fr="À propos de moi" data-en="About Me">À propos de moi</h2>
             <span></span>
         </div>
         <div class="about-content">
             <div class="about-card">
                 <i class="fa-solid fa-server"></i>
-                <h3>Infrastructure</h3>
-                <p>Administration Linux, virtualisation et conception d'environnements fiables.</p>
+                <h3 data-fr="Infrastructure" data-en="Infrastructure">Infrastructure</h3>
+                <p data-fr="Administration Linux, virtualisation et conception d'environnements fiables." data-en="Linux administration, virtualization and designing reliable environments.">Administration Linux, virtualisation et conception d'environnements fiables.</p>
             </div>
             <div class="about-card">
                 <i class="fa-solid fa-gears"></i>
-                <h3>Automatisation</h3>
-                <p>Création de pipelines CI/CD avec Jenkins, GitHub Actions et scripts Bash.</p>
+                <h3 data-fr="Automatisation" data-en="Automation">Automatisation</h3>
+                <p data-fr="Création de pipelines CI/CD avec Jenkins, GitHub Actions et scripts Bash." data-en="Creating CI/CD pipelines with Jenkins, GitHub Actions and Bash scripting.">Création de pipelines CI/CD avec Jenkins, GitHub Actions et scripts Bash.</p>
             </div>
             <div class="about-card">
                 <i class="fa-solid fa-cloud"></i>
-                <h3>Cloud & Containers</h3>
-                <p>Déploiement d'applications avec Docker, Kubernetes et Terraform.</p>
+                <h3 data-fr="Cloud & Containers" data-en="Cloud & Containers">Cloud & Containers</h3>
+                <p data-fr="Déploiement d'applications avec Docker, Kubernetes et Terraform." data-en="Deploying applications with Docker, Kubernetes and Terraform.">Déploiement d'applications avec Docker, Kubernetes et Terraform.</p>
             </div>
         </div>
     </section>
 
     <section class="skills" id="skills">
         <div class="section-title">
-            <h2>Compétences</h2>
+            <h2 data-fr="Compétences" data-en="Skills">Compétences</h2>
             <span></span>
         </div>
         <div class="skills-grid">
@@ -90,7 +101,7 @@
 
     <section class="projects" id="projects">
         <div class="section-title">
-            <h2>Mes projets</h2>
+            <h2 data-fr="Mes projets" data-en="My Projects">Mes projets</h2>
             <span></span>
         </div>
 
@@ -99,15 +110,18 @@
                 <div class="project-icon">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </div>
-                <h3>Plateforme E-commerce</h3>
-                <p>Conception d'une application web avec gestion des utilisateurs et base de données relationnelle MySQL. Déploiement automatisé sur environnement Linux via des scripts Bash complexes.</p>
+                <h3 data-fr="Plateforme E-commerce" data-en="E-commerce Platform">Plateforme E-commerce</h3>
+                <p data-fr="Conception d'une application web avec gestion des utilisateurs et base de données relationnelle MySQL. Déploiement automatisé sur environnement Linux via des scripts Bash complexes."
+                   data-en="Design of a web application with user management and MySQL relational database. Automated deployment on Linux environment via complex Bash scripts.">
+                    Conception d'une application web avec gestion des utilisateurs et base de données relationnelle MySQL. Déploiement automatisé sur environnement Linux via des scripts Bash complexes.
+                </p>
                 <div class="project-tags">
                     <span>Linux</span>
                     <span>Bash</span>
                     <span>MySQL</span>
                 </div>
                 <a href="https://github.com/Fanambinalova" target="_blank" class="project-link">
-                    Voir sur GitHub <i class="fa-brands fa-github"></i>
+                    <span data-fr="Voir sur GitHub" data-en="View on GitHub">Voir sur GitHub</span> <i class="fa-brands fa-github"></i>
                 </a>
             </div>
 
@@ -115,47 +129,50 @@
                 <div class="project-icon">
                     <i class="fa-solid fa-network-wired"></i>
                 </div>
-                <h3>Environnement Linux Virtualisé</h3>
-                <p>Simulation d'une infrastructure DevOps complète sous QEMU/KVM. Automatisation de la configuration système avec Ansible et intégration de pipelines CI/CD (GitHub Actions) pour le test et le déploiement.</p>
+                <h3 data-fr="Environnement Linux Virtualisé" data-en="Virtualized Linux Environment">Environnement Linux Virtualisé</h3>
+                <p data-fr="Simulation d'une infrastructure DevOps complète sous QEMU/KVM. Automatisation de la configuration système avec Ansible et intégration de pipelines CI/CD (GitHub Actions) pour le test et le déploiement."
+                   data-en="Simulation of a complete DevOps infrastructure under QEMU/KVM. System configuration automation with Ansible and integration of CI/CD pipelines (GitHub Actions) for testing and deployment.">
+                    Simulation d'une infrastructure DevOps complète sous QEMU/KVM. Automatisation de la configuration système avec Ansible et intégration de pipelines CI/CD (GitHub Actions) pour le test et le déploiement.
+                </p>
                 <div class="project-tags">
                     <span>QEMU/KVM</span>
                     <span>Ansible</span>
                     <span>CI/CD</span>
                 </div>
                 <a href="https://github.com/Fanambinalova" target="_blank" class="project-link">
-                    Voir sur GitHub <i class="fa-brands fa-github"></i>
+                    <span data-fr="Voir sur GitHub" data-en="View on GitHub">Voir sur GitHub</span> <i class="fa-brands fa-github"></i>
                 </a>
             </div>
         </div>
 
         <div class="more-projects">
             <a href="https://github.com/Fanambinalova" target="_blank" class="btn btn-secondary">
-                Voir plus sur GitHub <i class="fa-brands fa-github"></i>
+                <span data-fr="Voir plus sur GitHub" data-en="See more on GitHub">Voir plus sur GitHub</span> <i class="fa-brands fa-github"></i>
             </a>
         </div>
     </section>
 
     <section class="journey" id="journey">
         <div class="section-title">
-            <h2>Mon parcours</h2>
+            <h2 data-fr="Mon parcours" data-en="My Journey">Mon parcours</h2>
             <span></span>
         </div>
         <div class="timeline">
             <div class="timeline-item">
                 <h3>2022 - 2023</h3>
-                <h4>Baccalauréat Scientifique (Série S)</h4>
+                <h4 data-fr="Baccalauréat Scientifique (Série S)" data-en="Scientific Baccalaureate (S Series)">Baccalauréat Scientifique (Série S)</h4>
             </div>
             <div class="timeline-item">
                 <h3>2024 - 2027</h3>
-                <h4>Licence en Informatique Technologique (En cours de formation)</h4>
-                <p>Parcours Génie Logiciel</p>
+                <h4 data-fr="Licence en Informatique Technologique (En cours de formation)" data-en="Bachelor in Technological Computer Science (In Progress)">Licence en Informatique Technologique (En cours de formation)</h4>
+                <p data-fr="Parcours Génie Logiciel" data-en="Software Engineering Track">Parcours Génie Logiciel</p>
             </div>
         </div>
     </section>
 
     <section class="contact" id="contact">
         <div class="section-title">
-            <h2>Contact</h2>
+            <h2 data-fr="Contact" data-en="Contact">Contact</h2>
             <span></span>
         </div>
         <div class="contact-container">
