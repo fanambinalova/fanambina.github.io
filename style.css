@@ -8,31 +8,32 @@
     scroll-behavior: smooth;
 }
 
-/* Variables dynamiques pour les modes Sombre et Clair (blanc-sombre) */
+/* Variables dynamiques ajustées avec le nouveau dégradé bleu profond de l'image */
 :root[data-theme="dark"] {
     --primary: #3b82f6;
     --secondary: #60a5fa;
-    --background: #090d16;
+    --background: #050b14;        /* Ajusté pour correspondre à la base sombre de l'image */
     --white: #ffffff;
     --text: #cbd5e1;
     --text-titles: #ffffff;
     --border: rgba(255, 255, 255, 0.08);
     --shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    --nav-bg: rgba(7, 11, 18, 0.75);
-    --card-bg: rgba(30, 41, 59, 0.4);
+    --nav-bg: rgba(5, 11, 20, 0.75);
+    --card-bg: rgba(15, 23, 42, 0.5);
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-hover: rgba(255, 255, 255, 0.06);
     --control-bg: rgba(255, 255, 255, 0.05);
-    --canvas-gradient: radial-gradient(circle at 50% 50%, #111c30 0%, #070b12 100%);
+    /* Dégradé fluide calqué sur votre image */
+    --canvas-gradient: linear-gradient(180deg, #1b2a47 0%, #0d1b33 40%, #0246a4 100%);
 }
 
 :root[data-theme="light"] {
     --primary: #2563eb;
     --secondary: #3b82f6;
-    --background: #eef2f6;        /* Blanc-sombre élégant */
+    --background: #eef2f6;
     --white: #0f172a;
-    --text: #475569;             /* Gris foncé lisible */
-    --text-titles: #0f172a;      /* Titres très sombres */
+    --text: #475569;
+    --text-titles: #0f172a;
     --border: rgba(15, 23, 42, 0.08);
     --shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
     --nav-bg: rgba(238, 242, 246, 0.8);
@@ -52,7 +53,6 @@ body{
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Arrière-plan Canvas magique */
 #bg-animation {
     position: fixed;
     top: 0;
@@ -76,7 +76,7 @@ body{
     border-radius: 20px;
 }
 ::-webkit-scrollbar-track{
-    background: #070b12;
+    background: #050b14;
 }
 
 /*============
@@ -165,7 +165,6 @@ nav ul li a:hover, nav ul li a.active{
     text-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
 }
 
-/* BOUTONS TRADUCTION & THÈME */
 .nav-controls {
     display: flex;
     gap: 15px;
@@ -191,6 +190,47 @@ nav ul li a:hover, nav ul li a.active{
     background: var(--primary);
     color: white;
     border-color: var(--primary);
+}
+
+/*=======================
+    HIRE BADGE STYLE
+========================*/
+.hire-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(37, 99, 235, 0.15);
+    border: 1px solid rgba(37, 99, 235, 0.3);
+    padding: 6px 16px;
+    border-radius: 30px;
+    color: var(--secondary);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981; /* Vert émeraude */
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
 }
 
 /*===========

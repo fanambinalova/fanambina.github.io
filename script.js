@@ -3,7 +3,7 @@
     Auteur : Fanambinantsoa Haja
 ==================================*/
 
-// --- 1. GESTION DU DOUBLE THÈME ---
+// 1. GESTION DU DOUBLE THÈME
 const themeToggle = document.getElementById('theme-toggle');
 const themeIcon = document.getElementById('theme-icon');
 
@@ -23,7 +23,7 @@ function updateThemeIcon(theme) {
     themeIcon.className = theme === 'light' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
 }
 
-// --- 2. GESTION DE LA TRADUCTION MULTILINGUE ---
+// 2. GESTION DE LA TRADUCTION MULTILINGUE 
 const langToggle = document.getElementById('lang-toggle');
 const langText = document.getElementById('lang-text');
 let currentLang = localStorage.getItem('lang') || 'fr';
@@ -45,7 +45,7 @@ langToggle.addEventListener('click', () => {
     deleting = false;
 });
 
-// --- 3. EFFET TYPEWRITER ADAPTÉ ET TRADUIT ---
+// 3. EFFET TYPEWRITER TRADUIT
 const typingElement = document.getElementById("typing");
 const translations = {
     fr: ["DevOps Engineer", "Passionné Linux", "Docker & Kubernetes", "Automatisation CI/CD", "Cloud & Infrastructure"],
@@ -175,7 +175,7 @@ window.addEventListener("mousemove", (e) => {
 });
 
 /*====================================================
-    MOTEUR D'ANIMATION DE GOUTTES MACRO (Couleurs adaptatives)
+    MOTEUR D'ANIMATION DE GOUTTES MACRO (Couleurs adaptées)
 ======================================================*/
 const canvas = document.getElementById('bg-animation');
 const ctx = canvas.getContext('2d');
@@ -256,9 +256,10 @@ class MacroDrop {
         );
         
         if (isDark) {
+            // Teintes d'eau calquées sur le dégradé de l' image (Bleu roi profond)
             gradient.addColorStop(0, `rgba(255, 255, 255, ${this.alpha * 1.8})`);
-            gradient.addColorStop(0.5, `rgba(59, 130, 246, ${this.alpha * 0.4})`);
-            gradient.addColorStop(1, 'rgba(10, 15, 30, 0)');
+            gradient.addColorStop(0.5, `rgba(37, 99, 235, ${this.alpha * 0.5})`);
+            gradient.addColorStop(1, 'rgba(5, 11, 20, 0)');
             ctx.strokeStyle = `rgba(255, 255, 255, ${this.alpha * 0.25})`;
         } else {
             gradient.addColorStop(0, `rgba(255, 255, 255, ${this.alpha * 2})`);
@@ -294,11 +295,3 @@ function animate() {
 
 init();
 animate();
-
-/*==========================
-    YEAR FOOTER
-===========================*/
-const footer = document.querySelector("footer p");
-if(footer) {
-    footer.innerHTML = `© ${new Date().getFullYear()} Fanambina. Turning dreams to reality. | ¬ DevOps Junior`;
-}
