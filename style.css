@@ -1,6 +1,8 @@
-/*====================
-    RESET & BASE
-====================*/
+/*==========================================================================
+ *   PORTFOLIO DEVOPS — STYLE.CSS
+ *   Auteur : RAKOTOMAMONJY Fanambinantsoa Haja
+ *   Dernière mise à jour : Juillet 2026
+ = *=========================================================================*/
 *{
     margin: 0;
     padding: 0;
@@ -21,6 +23,7 @@
     --card-bg: rgba(15, 23, 42, 0.5);
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-hover: rgba(255, 255, 255, 0.06);
+    --control-bg: rgba(255, 255, 255, 0.05);
     --canvas-gradient: linear-gradient(180deg, #1b2a47 0%, #0d1b33 40%, #0246a4 100%);
 }
 
@@ -51,20 +54,20 @@ body{
 }
 
 #bg-animation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    pointer-events: none;
-    background: var(--canvas-gradient);
-    transition: background 0.3s ease;
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+z-index: -1;
+pointer-events: none;
+background: var(--canvas-gradient);
+transition: background 0.3s ease;
 }
 
 /*================
-    SCROLLBAR
-=================*/
+ *   SCROLLBAR
+ = *================*/
 ::-webkit-scrollbar{
     width: 8px;
 }
@@ -77,8 +80,8 @@ body{
 }
 
 /*============
-    ELEMENTS
-=============*/
+ *   ELEMENTS
+ = *============*/
 a{
     text-decoration: none;
     color: inherit;
@@ -115,8 +118,8 @@ section{
 }
 
 /*============
-    NAVBAR
-=============*/
+ *   NAVBAR
+ = *============*/
 nav{
     position: fixed;
     top: 0;
@@ -190,8 +193,8 @@ nav ul li a:hover, nav ul li a.active{
 }
 
 /*=======================
-    HIRE BADGE STYLE
-========================*/
+ *   HIRE BADGE STYLE
+ = *=======================*/
 .hire-badge {
     display: inline-flex;
     align-items: center;
@@ -209,7 +212,7 @@ nav ul li a:hover, nav ul li a.active{
 .pulse-dot {
     width: 8px;
     height: 8px;
-    background: #10b981; /* Vert émeraude */
+    background: #10b981;
     border-radius: 50%;
     box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
     animation: pulse 1.6s infinite;
@@ -231,8 +234,8 @@ nav ul li a:hover, nav ul li a.active{
 }
 
 /*===========
-    HERO
-===========*/
+ *   HERO
+ = *==========*/
 .hero{
     min-height: 100vh;
     display: flex;
@@ -335,8 +338,8 @@ nav ul li a:hover, nav ul li a.active{
 }
 
 /*======================
-    ABOUT & SKILLS
-=======================*/
+ *   ABOUT & SKILLS
+ = *======================*/
 .about-content{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -414,148 +417,9 @@ nav ul li a:hover, nav ul li a.active{
     font-weight: 500;
 }
 
-/*===================
-    TIMELINE (JOURNEY)
-====================*/
-.timeline{
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-    border-left: 3px solid rgba(59, 130, 246, 0.2);
-    padding-left: 30px;
-}
-
-.timeline-item{
-    position: relative;
-    margin-bottom: 40px;
-    background: var(--glass-bg);
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    transition: background-color 0.3s ease;
-}
-
-.timeline-item::before{
-    content: '';
-    position: absolute;
-    left: -41px;
-    top: 28px;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: var(--background);
-    border: 4px solid var(--primary);
-    transition: background-color 0.3s ease;
-}
-
-.timeline-item h3{
-    color: var(--primary);
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.timeline-item h4{
-    color: var(--text-titles);
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-/*===================
-    CONTACT & FOOTER
-====================*/
-.contact-container{
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-.contact-container a{
-    width: 60px;
-    height: 60px;
-    background: var(--glass-bg);
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 22px;
-    color: var(--text-titles);
-    transition: .3s ease, background-color 0.3s ease;
-}
-
-.contact-container a:hover{
-    color: white;
-    background: var(--primary);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
-}
-
-.contact-container a.whatsapp-btn:hover {
-    background: #25d366; /* Vert WhatsApp officiel */
-    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-    border-color: #25d366;
-}
-
-/*====================
-    ANIMATIONS & UX
-====================*/
-@keyframes float{
-    0% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-15px) rotate(2deg); }
-    100% { transform: translateY(0px) rotate(0deg); }
-}
-
-.about-card, .skill, .timeline-item, .project-card{
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.about-card.show, .skill.show, .timeline-item.show, .project-card.show{
-    opacity: 1;
-    transform: translateY(0);
-}
-
-#backToTop{
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    border: none;
-    border-radius: 50%;
-    background: var(--primary);
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-    opacity: 0;
-    pointer-events: none;
-    transition: .3s ease;
-    z-index: 999;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-#backToTop.visible{
-    opacity: 1;
-    pointer-events: auto;
-}
-
-#backToTop:hover{
-    transform: translateY(-5px);
-    background: var(--secondary);
-}
-
-@media (max-width: 768px) {
-    .hero { flex-direction: column-reverse; text-align: center; padding-top: 100px; }
-    .hero-left h1 { font-size: 40px; }
-    .hero-right img { width: 260px; height: 260px; }
-    nav ul { display: none; }
-    section { padding: 80px 5%; }
-}
-
 /* ==========================================
-   STYLE DE LA SECTION PROJETS
-   ========================================== */
+ *  SECTION PROJETS
+ *  ========================================== */
 .projects-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -639,4 +503,184 @@ nav ul li a:hover, nav ul li a.active{
 
 .more-projects .btn i {
     margin-left: 8px;
+}
+
+/*===================
+ *   TIMELINE (JOURNEY)
+ = *===================*/
+.timeline{
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    border-left: 3px solid rgba(59, 130, 246, 0.2);
+    padding-left: 30px;
+}
+
+.timeline-item{
+    position: relative;
+    margin-bottom: 40px;
+    background: var(--glass-bg);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    transition: background-color 0.3s ease;
+}
+
+.timeline-item::before{
+    content: '';
+    position: absolute;
+    left: -41px;
+    top: 28px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--background);
+    border: 4px solid var(--primary);
+    transition: background-color 0.3s ease;
+}
+
+.timeline-item h3{
+    color: var(--primary);
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.timeline-item h4{
+    color: var(--text-titles);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/*===================
+ *   CONTACT
+ = *===================*/
+.contact-container{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.contact-container a{
+    width: 60px;
+    height: 60px;
+    background: var(--glass-bg);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    color: var(--text-titles);
+    transition: .3s ease, background-color 0.3s ease;
+}
+
+.contact-container a:hover{
+    color: white;
+    background: var(--primary);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+}
+
+.contact-container a.whatsapp-btn:hover {
+    background: #25d366;
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+    border-color: #25d366;
+}
+
+/*===================
+ *   FOOTER (CORRIGÉ & CENTRÉ)
+ = *===================*/
+footer {
+    text-align: center;
+    padding: 50px 20px 80px 20px;
+    border-top: 1px solid var(--border);
+    color: var(--text);
+    font-size: 14px;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+footer p {
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+    display: inline-block;
+}
+
+/*===========================
+ *   BACK TO TOP (CORRIGÉ)
+ = *===========================*/
+#backToTop {
+position: fixed;
+bottom: 90px;
+right: 30px;
+width: 50px;
+height: 50px;
+border: none;
+border-radius: 50%;
+background: var(--primary);
+color: white;
+font-size: 20px;
+cursor: pointer;
+opacity: 0;
+pointer-events: none;
+transition: .3s ease;
+z-index: 999;
+box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+#backToTop.visible {
+opacity: 1;
+pointer-events: auto;
+}
+
+#backToTop:hover {
+transform: translateY(-5px);
+background: var(--secondary);
+}
+
+/*====================
+ *   ANIMATIONS & UX
+ = *===================*/
+@keyframes float{
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.about-card, .skill, .timeline-item, .project-card{
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about-card.show, .skill.show, .timeline-item.show, .project-card.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*===========================
+ *   RESPONSIVE DESIGN (MOBILE)
+ = *===========================*/
+@media (max-width: 768px) {
+    .hero { flex-direction: column-reverse; text-align: center; padding-top: 100px; }
+    .hero-left h1 { font-size: 40px; }
+    .hero-right img { width: 260px; height: 260px; }
+    nav ul { display: none; }
+    section { padding: 80px 5%; }
+}
+
+@media (max-width: 480px) {
+    footer {
+        font-size: 13px;
+        padding-bottom: 100px;
+    }
+    #backToTop {
+    right: 20px;
+    bottom: 110px;
+    width: 45px;
+    height: 45px;
+    }
 }
