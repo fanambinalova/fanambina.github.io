@@ -8,11 +8,10 @@
     scroll-behavior: smooth;
 }
 
-/* Variables dynamiques ajustées avec le nouveau dégradé bleu profond de l'image */
 :root[data-theme="dark"] {
     --primary: #3b82f6;
     --secondary: #60a5fa;
-    --background: #050b14;        /* Ajusté pour correspondre à la base sombre de l'image */
+    --background: #050b14;
     --white: #ffffff;
     --text: #cbd5e1;
     --text-titles: #ffffff;
@@ -22,8 +21,6 @@
     --card-bg: rgba(15, 23, 42, 0.5);
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-hover: rgba(255, 255, 255, 0.06);
-    --control-bg: rgba(255, 255, 255, 0.05);
-    /* Dégradé fluide calqué sur votre image */
     --canvas-gradient: linear-gradient(180deg, #1b2a47 0%, #0d1b33 40%, #0246a4 100%);
 }
 
@@ -493,12 +490,10 @@ nav ul li a:hover, nav ul li a.active{
     box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
 }
 
-footer{
-    text-align: center;
-    padding: 40px;
-    border-top: 1px solid var(--border);
-    color: var(--text);
-    font-size: 14px;
+.contact-container a.whatsapp-btn:hover {
+    background: #25d366; /* Vert WhatsApp officiel */
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+    border-color: #25d366;
 }
 
 /*====================

@@ -3,13 +3,17 @@
     Auteur : Fanambinantsoa Haja
 ==================================*/
 
-// 1. GESTION DU DOUBLE THÈME
 const themeToggle = document.getElementById('theme-toggle');
 const themeIcon = document.getElementById('theme-icon');
 
-const currentTheme = localStorage.getItem('theme') || 'dark';
-document.documentElement.setAttribute('data-theme', currentTheme);
-updateThemeIcon(currentTheme);
+function getAutoThemeByTime() {
+    const hours = new Date().getHours();
+    return (hours >= 6 && hours < 18) ? 'light' : 'dark';
+}
+
+const initialTheme = localStorage.getItem('theme') || getAutoThemeByTime();
+document.documentElement.setAttribute('data-theme', initialTheme);
+updateThemeIcon(initialTheme);
 
 themeToggle.addEventListener('click', () => {
     let theme = document.documentElement.getAttribute('data-theme');
@@ -23,29 +27,29 @@ function updateThemeIcon(theme) {
     themeIcon.className = theme === 'light' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
 }
 
-// 2. GESTION DE LA TRADUCTION MULTILINGUE 
 const langToggle = document.getElementById('lang-toggle');
 const langText = document.getElementById('lang-text');
-let currentLang = localStorage.getItem('lang') || 'fr';
+
+let currentLang = localStorage.getItem('lang') || 'en'; 
 
 function applyLanguage(lang) {
     document.querySelectorAll('[data-fr]').forEach(el => {
         el.textContent = el.getAttribute(`data-${lang}`);
     });
-    langText.textContent = lang === 'fr' ? 'EN' : 'FR';
+    langText.textContent = lang === 'en' ? 'FR' : 'EN';
     localStorage.setItem('lang', lang);
 }
 applyLanguage(currentLang);
 
 langToggle.addEventListener('click', () => {
-    currentLang = currentLang === 'fr' ? 'en' : 'fr';
+    currentLang = currentLang === 'en' ? 'fr' : 'en';
     applyLanguage(currentLang);
     textIndex = 0;
     charIndex = 0;
     deleting = false;
 });
 
-// 3. EFFET TYPEWRITER TRADUIT
+// . EFFET TYPEWRITER TRADUI
 const typingElement = document.getElementById("typing");
 const translations = {
     fr: ["DevOps Engineer", "Passionné Linux", "Docker & Kubernetes", "Automatisation CI/CD", "Cloud & Infrastructure"],
@@ -57,7 +61,7 @@ let charIndex = 0;
 let deleting = false;
 
 function typeEffect() {
-    const currentList = translations[currentLang] || translations['fr'];
+    const currentList = translations[currentLang] || translations['en'];
     const current = currentList[textIndex];
 
     if (!deleting) {
@@ -175,7 +179,7 @@ window.addEventListener("mousemove", (e) => {
 });
 
 /*====================================================
-    MOTEUR D'ANIMATION DE GOUTTES MACRO (Couleurs adaptées)
+    MOTEUR D'ANIMATION DE GOUTTES MACRO
 ======================================================*/
 const canvas = document.getElementById('bg-animation');
 const ctx = canvas.getContext('2d');
@@ -256,7 +260,6 @@ class MacroDrop {
         );
         
         if (isDark) {
-            // Teintes d'eau calquées sur le dégradé de l' image (Bleu roi profond)
             gradient.addColorStop(0, `rgba(255, 255, 255, ${this.alpha * 1.8})`);
             gradient.addColorStop(0.5, `rgba(37, 99, 235, ${this.alpha * 0.5})`);
             gradient.addColorStop(1, 'rgba(5, 11, 20, 0)');
